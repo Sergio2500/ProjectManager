@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Project.Manager.Models.HoraTrabalhada>
+
+@{
+    ViewBag.Title = "ListarPontos";
+}
+
+<h2>Controle de Ponto</h2>
+
+
+<table class="table table-bordered table-hover" style="background-color:white;">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TBColabProj.TBCadColaboradores.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HorarioEntrada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HorarioSaida)
+        </th>
+        <th></th>
+               
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TBColabProj.TBCadColaboradores.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HorarioEntrada)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HorarioSaida)
+        </td>
+       
+        <td>
+            @Html.ActionLink(" ", "AlterarPonto", new { id = item.Id }, new { @class = "btn btn-info glyphicon glyphicon-pencil", title = "Alterar"}) 
+            @Html.ActionLink(" ", "MostrarDetalhes", new { id = item.Id }, new { @class = "btn btn-success glyphicon glyphicon-zoom-in", title = "Mostrar Detalhes" }) 
+            @Html.ActionLink(" ", "ExcluirPonto", new { id = item.Id }, new {@class = "btn btn-danger glyphicon glyphicon-remove-circle", title = "Excluir"})
+        </td>
+    </tr>
+}
+
+</table>

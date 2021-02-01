@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ProjectManagerModelStoreContainer" CdmEntityContainer="ProjectManagerConnection">
+    <EntitySetMapping Name="CadCliente">
+      <EntityTypeMapping TypeName="ProjectManagerModel.CadCliente">
+        <MappingFragment StoreEntitySet="TBCadClientes">
+          <ScalarProperty Name="UF" ColumnName="UF" />
+          <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+          <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+          <ScalarProperty Name="Logradouro" ColumnName="Logradouro" />
+          <ScalarProperty Name="CEP" ColumnName="CEP" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RazaoSocial" ColumnName="RazaoSocial" />
+          <ScalarProperty Name="AreaAtuacao" ColumnName="AreaAtuacao" />
+          <ScalarProperty Name="CNPJ" ColumnName="CNPJ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CadColaborador">
+      <EntityTypeMapping TypeName="ProjectManagerModel.CadColaborador">
+        <MappingFragment StoreEntitySet="TBCadColaboradores">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="SetorSquad" ColumnName="SetorSquad" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdSkill" ColumnName="IdSkill" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="TipoDocumento" ColumnName="TipoDocumento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CadProjeto">
+      <EntityTypeMapping TypeName="ProjectManagerModel.CadProjeto">
+        <MappingFragment StoreEntitySet="TBCadProjeto">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="NumeroHoras" ColumnName="NumeroHoras" />
+          <ScalarProperty Name="DataInicio" ColumnName="DataInicio" />
+          <ScalarProperty Name="DataTermino" ColumnName="DataTermino" />
+          <ScalarProperty Name="Situacao" ColumnName="Situacao" />
+          <ScalarProperty Name="TipoPgtoProj" ColumnName="TipoPgtoProj" />
+          <ScalarProperty Name="Orcamento" ColumnName="Orcamento" />
+          <ScalarProperty Name="ValorDespesas" ColumnName="ValorDespesas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ColaboradorProjeto">
+      <EntityTypeMapping TypeName="ProjectManagerModel.ColaboradorProjeto">
+        <MappingFragment StoreEntitySet="TBColabProj">
+          <ScalarProperty Name="TarefaColab" ColumnName="TarefaColab" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ValorHora" ColumnName="ValorHora" />
+          <ScalarProperty Name="IdProjeto" ColumnName="IdProjeto" />
+          <ScalarProperty Name="IdColab" ColumnName="IdColab" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contato">
+      <EntityTypeMapping TypeName="ProjectManagerModel.Contato">
+        <MappingFragment StoreEntitySet="TBContatos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="NumeroTelefone" ColumnName="NumeroTelefone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HoraTrabalhada">
+      <EntityTypeMapping TypeName="ProjectManagerModel.HoraTrabalhada">
+        <MappingFragment StoreEntitySet="TBHorasTrabalhadas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdColab" ColumnName="IdColab" />
+          <ScalarProperty Name="HorarioEntrada" ColumnName="HorarioEntrada" />
+          <ScalarProperty Name="HorarioSaida" ColumnName="HorarioSaida" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Skill">
+      <EntityTypeMapping TypeName="ProjectManagerModel.Skill">
+        <MappingFragment StoreEntitySet="TBSkill">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TipoSkill" ColumnName="TipoSkill" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

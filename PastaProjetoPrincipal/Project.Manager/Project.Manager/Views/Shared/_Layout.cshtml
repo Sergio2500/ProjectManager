@@ -1,0 +1,107 @@
+﻿ <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/Estilo4.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="https://static.wixstatic.com/media/085d57_f074fa01fcb44fabbb0907b7dac45365~mv2.png/v1/fill/w_55,h_55,al_c,q_85,usm_0.66_1.00_0.01/logo_MTTechne_cor%20(2).webp" type="image/x-icon" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+
+    @*<style>
+            h2{
+                color:white;
+            }
+        </style>*@
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top menu">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="false">
+                            Clientes<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Incluir Novo Cliente", "IncluirCLiente", "Cliente")</li>
+                            <li>@Html.ActionLink("Listar Clientes", "ListarClientes", "Cliente")</li>
+                            <li>@Html.ActionLink("Incluir Contato", "IncluirContato", "Contatos")</li>
+                            <li>@Html.ActionLink("Lista de Contatos", "ListarContatos", "Contatos")</li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="false">
+                            Colaboradores<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Incluir Colaborador", "IncluirColaborador", "Colaborador")</li>
+                            <li>@Html.ActionLink("Lista de Colaboradores", "ListarColaboradores", "Colaborador")</li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="false">
+                            Skills<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Cadastrar Skill", "CadastrarSkill", "Skill")</li>
+                            <li>@Html.ActionLink("Listar Skills", "ListarSkills", "Skill")</li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="false">
+                            Projetos<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Cadastrar Projeto", "CadastrarProjeto", "Projetos")</li>
+                            <li>@Html.ActionLink("Listar Projeto", "ListarProjetos", "Projetos")</li>
+                            <li>@Html.ActionLink("Incluir Tarefa", "IncluirTarefa", "ColaboradorProjeto")</li>
+                            <li>@Html.ActionLink("Listar Tarefas", "ListarTarefas", "ColaboradorProjeto")</li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="false">
+                            Controle de Ponto<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Incluir Cadastro de Ponto", "IncluirControle", "ControlePonto")</li>
+                            <li>@Html.ActionLink("Mostrar Cadastro de Ponto", "ListarPontos", "ControlePonto")</li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+                @{Html.RenderPartial("_Login_Usuario");}
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Mttechne Tecnologia e Negócios</p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    @RenderSection("Scripts", false)
+</body>
+</html>

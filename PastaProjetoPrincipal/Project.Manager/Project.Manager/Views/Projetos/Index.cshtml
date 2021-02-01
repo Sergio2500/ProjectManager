@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Projetos</h2>
+
+<ul>
+    <li>
+        @Html.ActionLink("Cadastrar Projeto", "CadastrarProjeto")
+    </li>
+    <li>
+        @Html.ActionLink("Listar Projeto", "ListarProjetos")
+    </li>
+    <li>
+        @Html.ActionLink("Incluir Tarefa", "IncluirTarefa", "ColaboradorProjeto")
+    </li>
+    <li>
+        @Html.ActionLink("Listar Tarefas", "ListarTarefas", "ColaboradorProjeto")
+    </li>
+</ul>
+

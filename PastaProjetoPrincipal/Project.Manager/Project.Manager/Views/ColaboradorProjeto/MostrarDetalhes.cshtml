@@ -1,0 +1,54 @@
+﻿@model Project.Manager.Models.ColaboradorProjeto
+
+@{
+    ViewBag.Title = "MostrarDetalhes";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdProjeto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdProjeto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdColab)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdColab)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorHora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValorHora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TarefaColab)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TarefaColab)
+        </dd>
+
+        
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
+    @Html.ActionLink("Voltar para a lista", "ListarTarefas")
+</p>

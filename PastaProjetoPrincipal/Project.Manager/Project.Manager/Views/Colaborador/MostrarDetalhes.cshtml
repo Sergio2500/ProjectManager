@@ -1,0 +1,68 @@
+﻿@model Project.Manager.Models.CadColaborador
+@using Project.Manager.ViewModel
+@{
+    ViewBag.Title = "MostrarDetalhes";
+    var listaSkill = (List<ColaboradorTypePeopleViewModel>)ViewBag.ListaTipoSkill;
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdSkill)
+            @*@listaSkill.FirstOrDefault(p => p.IdSkill == item.IdSkill).TipoSkill;*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdSkill)
+
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoDocumento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoDocumento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SetorSquad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SetorSquad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+
+
+    </dl>
+</div>
+
+@*<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>*@
+
+<p>
+    @Html.ActionLink("Voltar para a Lista", "ListarColaboradores")
+</p>

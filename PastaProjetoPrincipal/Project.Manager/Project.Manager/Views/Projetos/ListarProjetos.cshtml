@@ -1,0 +1,93 @@
+﻿@*@model IEnumerable<Project.Manager.Models.CadProjeto>*@
+
+@using  PagedList.Mvc
+@model PagedList.IPagedList<Project.Manager.Models.CadProjeto>
+
+
+@{
+    ViewBag.Title = "ListarProjetos";
+}
+
+<h2>Listar Projetos</h2>
+
+
+
+@using(Html.BeginForm("ListarProjetos", "Projetos", FormMethod.Get))
+{
+    <p>
+        Procura por Nome: @Html.TextBox("busca")
+        <input type="submit" value="Buscar"/>
+    </p>
+}
+
+<table class="table table-bordered table-hover" style="background-color:white;">
+    <tr>
+        <th>
+            
+            Cliente
+        </th>
+        <th>
+            @Html.ActionLink("Descricao", "ListarProjetos", new { sortOrder = ViewBag.NomeParam})
+        </th>
+        <th>
+            
+            Número de Horas
+        </th>
+        <th>
+            
+            Data de Início
+        </th>
+        <th>
+            
+            Data de Término
+        </th>
+        <th>
+            @Html.ActionLink("Situacao", "ListarProjetos", new { sortOrder = ViewBag.NomeParam})
+        </th>
+                    
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TBCadClientes.RazaoSocial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumeroHoras)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataInicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataTermino)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Situacao)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.TipoPgtoProj)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Orcamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValorDespesas)
+        </td>*@
+        <td>
+            @Html.ActionLink(" ", "AlterarProjeto", new { id = item.Id }, new { @class = "btn btn-info glyphicon glyphicon-pencil", title = "Alterar" })
+            @Html.ActionLink(" ", "MostrarDetalhes", new { id = item.Id }, new { @class = "btn btn-success glyphicon glyphicon-zoom-in", title = "Mostrar Detalhes" })
+            @Html.ActionLink(" ", "ExcluirProjeto", new { id = item.Id }, new {@class = "btn btn-danger glyphicon glyphicon-remove-circle", title = "Excluir"})
+            @Html.ActionLink(" ", "ListarProjetoColaborador", new { id = item.Id }, new {@class = "btn btn-warning glyphicon glyphicon-record", title = "Listar projeto por colaborador"})
+        </td>
+    </tr>
+}
+
+</table>
+
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("ListarProjetos", new { page, sortOrder = ViewBag.CurrentSort, filtroAtual = ViewBag.CurrentFilter }))

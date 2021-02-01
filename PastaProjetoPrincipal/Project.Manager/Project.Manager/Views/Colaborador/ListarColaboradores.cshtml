@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Project.Manager.Models.CadColaborador>
+@using Project.Manager.ViewModel
+
+@{
+    ViewBag.Title = "ListarColaboradores";
+    var listaSkill = (List<ColaboradorTypePeopleViewModel>)ViewBag.ListaTipoSkill;
+}
+
+
+<br />
+<table class="table table-bordered table-hover" style="background-color:white;">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdSkill)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoDocumento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SetorSquad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.IdSkill)
+
+                </td>*@
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+
+            <td>
+                @listaSkill.FirstOrDefault(p => p.IdSkill == item.IdSkill).TipoSkill;
+            </td>
+
+
+            @*@Html.DisplayFor(modelItem => item.TipoDocumento)*@
+            @if (item.TipoDocumento == 1)
+            {
+                <td>Pessoa Física</td>
+            }
+            else if (item.TipoDocumento == 2)
+            {
+                <td>Pessoa Jurídica</td>
+            }
+
+            <td>
+                @Html.DisplayFor(modelItem => item.SetorSquad)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+
+            <td>
+                @Html.ActionLink(" ", "AlterarColaborador", new { id = item.Id }, new { @class = "btn btn-info glyphicon glyphicon-pencil", title = "Alterar" })
+                @Html.ActionLink(" ", "MostrarDetalhes", new { id = item.Id }, new { @class = "btn btn-success glyphicon glyphicon-zoom-in", title = "Mostrar Detalhes" })
+                @Html.ActionLink(" ", "ExcluirColaborador", new { id = item.Id }, new { @class = "btn btn-danger glyphicon glyphicon-remove-circle", title = "Excluir" })
+                @Html.ActionLink(" ", "ListarColaboradorProjeto", new { id = item.Id }, new { @class = "btn btn-warning glyphicon glyphicon-record", title = "Listar colaborador por projeto" })
+                @*@Html.ActionLink(" ", "CadastrarHora", "Projetos", new { id = item.Id }, new { @class = "btn btn-warning glyphicon glyphicon-record", title = "Listar colaborador por projeto" })*@
+
+            </td>
+        </tr>
+    }
+
+</table>
+

@@ -1,0 +1,32 @@
+﻿body {
+    /*background: url('../Imagens/GestãoProjetos04.jpeg') no-repeat;*/
+    /*background: url('../Imagens/GestãoProjetos05.jpeg') no-repeat;*/
+    /*background: url('../Imagens/GestãoProjetos07.jpeg');*/
+    background-size: cover;
+    height: 100%;
+    background: rgb(245,245,245);
+    background: linear-gradient(90deg, rgba(245,245,245,1) 15%, rgba(122,122,231,1) 85%);
+    opacity: .8;
+    background-color: whitesmoke /*burlywood*/ /*azure*/
+}
+
+.menu {
+    background: rgb(44,41,84);
+    background: linear-gradient(90deg, rgba(44,41,84,1) 0%, rgba(19,19,195,1) 51%, rgba(52,143,161,1) 75%);
+    /*background: rgb(92,91,105);
+    background: linear-gradient(90deg, rgba(92,91,105,1) 3%, rgba(74,74,218,1) 95%, rgba(20,94,108,1) 100%);*/
+    /*background-color: black;*/
+    /*blanchedalmond;*/
+    /*color: rgb(0,0,0);*/
+    /*darkred*/ /*darkcyan*/
+    /*background: rgb(39,35,106);
+            background: linear-gradient(90deg, rgba(39,35,106,1) 0%, rgba(105,105,245,1) 47%, rgba(109,164,175,1) 100%);*/
+}
+
+.navbar-inverse .navbar-brand{
+    color: white;
+}
+
+.nav>li>a{
+    color: white !important;
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0e1737935a7442f79e3f31de237bf081" Name="Diagram1" ZoomLevel="90">
+        <EntityTypeShape EntityType="ProjectManagerModel.CadCliente" Width="1.5" PointX="10.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagerModel.CadColaborador" Width="1.5" PointX="13" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagerModel.CadProjeto" Width="1.5" PointX="13.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagerModel.ColaboradorProjeto" Width="1.375" PointX="15.5" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagerModel.Contato" Width="1.5" PointX="8" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagerModel.HoraTrabalhada" Width="1.5" PointX="10" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagerModel.Skill" Width="1.5" PointX="7.875" PointY="7.125" IsExpanded="true" />
+        <AssociationConnector Association="ProjectManagerModel.FK__TBCadProj__IdCli__55009F39" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagerModel.FK__TBContato__IdCli__625A9A57" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagerModel.FK__TBCadCola__IdSki__671F4F74" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagerModel.FK__TBColabPr__IdCol__6BE40491" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagerModel.FK__TBColabPr__IdPro__6AEFE058" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagerModel.FK__TBHorasTr__IdCol__6EC0713C1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

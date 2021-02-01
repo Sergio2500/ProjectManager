@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProjectManagerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CadCliente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RazaoSocial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AreaAtuacao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CNPJ" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TBCadProjeto" Relationship="Self.FK__TBCadProj__IdCli__55009F39" FromRole="TBCadClientes" ToRole="TBCadProjeto" />
+    <NavigationProperty Name="TBContatos" Relationship="Self.FK__TBContato__IdCli__625A9A57" FromRole="TBCadClientes" ToRole="TBContatos" />
+    <Property Name="CEP" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Logradouro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Bairro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Cidade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CadColaborador">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdSkill" Type="Int32" Nullable="false" />
+    <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TipoDocumento" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="TBSkill" Relationship="Self.FK__TBCadCola__IdSki__671F4F74" FromRole="TBCadColaboradores" ToRole="TBSkill" />
+    <NavigationProperty Name="TBColabProj" Relationship="Self.FK__TBColabPr__IdCol__6BE40491" FromRole="TBCadColaboradores" ToRole="TBColabProj" />
+    <Property Name="SetorSquad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CadProjeto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdCliente" Type="Int32" Nullable="false" />
+    <Property Name="Descricao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NumeroHoras" Type="Int32" Nullable="false" />
+    <Property Name="DataInicio" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DataTermino" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Situacao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TipoPgtoProj" Type="Int16" Nullable="false" />
+    <Property Name="Orcamento" Type="Double" Nullable="false" />
+    <Property Name="ValorDespesas" Type="Double" Nullable="false" />
+    <NavigationProperty Name="TBCadClientes" Relationship="Self.FK__TBCadProj__IdCli__55009F39" FromRole="TBCadProjeto" ToRole="TBCadClientes" />
+    <NavigationProperty Name="TBColabProj" Relationship="Self.FK__TBColabPr__IdPro__6AEFE058" FromRole="TBCadProjeto" ToRole="TBColabProj" />
+  </EntityType>
+  <EntityType Name="ColaboradorProjeto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ValorHora" Type="Double" Nullable="false" />
+    <Property Name="IdProjeto" Type="Int32" Nullable="false" />
+    <Property Name="IdColab" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TBCadColaboradores" Relationship="Self.FK__TBColabPr__IdCol__6BE40491" FromRole="TBColabProj" ToRole="TBCadColaboradores" />
+    <NavigationProperty Name="TBCadProjeto" Relationship="Self.FK__TBColabPr__IdPro__6AEFE058" FromRole="TBColabProj" ToRole="TBCadProjeto" />
+    <Property Name="TarefaColab" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TBHorasTrabalhadas" Relationship="ProjectManagerModel.FK__TBHorasTr__IdCol__6EC0713C1" FromRole="ColaboradorProjeto" ToRole="HoraTrabalhada" />
+  </EntityType>
+  <EntityType Name="Contato">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdCliente" Type="Int32" Nullable="false" />
+    <Property Name="NumeroTelefone" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TBCadClientes" Relationship="Self.FK__TBContato__IdCli__625A9A57" FromRole="TBContatos" ToRole="TBCadClientes" />
+  </EntityType>
+  <EntityType Name="HoraTrabalhada">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdColab" Type="Int32" Nullable="false" />
+    <Property Name="HorarioEntrada" Type="DateTime" Precision="3" />
+    <Property Name="HorarioSaida" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="TBColabProj" Relationship="ProjectManagerModel.FK__TBHorasTr__IdCol__6EC0713C1" FromRole="HoraTrabalhada" ToRole="ColaboradorProjeto" />
+  </EntityType>
+  <EntityType Name="Skill">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipoSkill" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TBCadColaboradores" Relationship="Self.FK__TBCadCola__IdSki__671F4F74" FromRole="TBSkill" ToRole="TBCadColaboradores" />
+  </EntityType>
+  <Association Name="FK__TBCadProj__IdCli__55009F39">
+    <End Role="TBCadClientes" Type="ProjectManagerModel.CadCliente" Multiplicity="1" />
+    <End Role="TBCadProjeto" Type="ProjectManagerModel.CadProjeto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBCadClientes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TBCadProjeto">
+        <PropertyRef Name="IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBContato__IdCli__625A9A57">
+    <End Role="TBCadClientes" Type="ProjectManagerModel.CadCliente" Multiplicity="1" />
+    <End Role="TBContatos" Type="ProjectManagerModel.Contato" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBCadClientes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TBContatos">
+        <PropertyRef Name="IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBCadCola__IdSki__671F4F74">
+    <End Role="TBSkill" Type="ProjectManagerModel.Skill" Multiplicity="1" />
+    <End Role="TBCadColaboradores" Type="ProjectManagerModel.CadColaborador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBSkill">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TBCadColaboradores">
+        <PropertyRef Name="IdSkill" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBColabPr__IdCol__6BE40491">
+    <End Role="TBCadColaboradores" Type="ProjectManagerModel.CadColaborador" Multiplicity="1" />
+    <End Role="TBColabProj" Type="ProjectManagerModel.ColaboradorProjeto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBCadColaboradores">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TBColabProj">
+        <PropertyRef Name="IdColab" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBColabPr__IdPro__6AEFE058">
+    <End Role="TBCadProjeto" Type="ProjectManagerModel.CadProjeto" Multiplicity="1" />
+    <End Role="TBColabProj" Type="ProjectManagerModel.ColaboradorProjeto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBCadProjeto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TBColabProj">
+        <PropertyRef Name="IdProjeto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ProjectManagerConnection" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CadCliente" EntityType="ProjectManagerModel.CadCliente" />
+    <EntitySet Name="CadColaborador" EntityType="ProjectManagerModel.CadColaborador" />
+    <EntitySet Name="CadProjeto" EntityType="ProjectManagerModel.CadProjeto" />
+    <EntitySet Name="ColaboradorProjeto" EntityType="ProjectManagerModel.ColaboradorProjeto" />
+    <EntitySet Name="Contato" EntityType="ProjectManagerModel.Contato" />
+    <EntitySet Name="HoraTrabalhada" EntityType="ProjectManagerModel.HoraTrabalhada" />
+    <EntitySet Name="Skill" EntityType="ProjectManagerModel.Skill" />
+    <AssociationSet Name="FK__TBCadProj__IdCli__55009F39" Association="Self.FK__TBCadProj__IdCli__55009F39">
+      <End Role="TBCadClientes" EntitySet="CadCliente" />
+      <End Role="TBCadProjeto" EntitySet="CadProjeto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBContato__IdCli__625A9A57" Association="Self.FK__TBContato__IdCli__625A9A57">
+      <End Role="TBCadClientes" EntitySet="CadCliente" />
+      <End Role="TBContatos" EntitySet="Contato" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBCadCola__IdSki__671F4F74" Association="Self.FK__TBCadCola__IdSki__671F4F74">
+      <End Role="TBSkill" EntitySet="Skill" />
+      <End Role="TBCadColaboradores" EntitySet="CadColaborador" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBColabPr__IdCol__6BE40491" Association="Self.FK__TBColabPr__IdCol__6BE40491">
+      <End Role="TBCadColaboradores" EntitySet="CadColaborador" />
+      <End Role="TBColabProj" EntitySet="ColaboradorProjeto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBColabPr__IdPro__6AEFE058" Association="Self.FK__TBColabPr__IdPro__6AEFE058">
+      <End Role="TBCadProjeto" EntitySet="CadProjeto" />
+      <End Role="TBColabProj" EntitySet="ColaboradorProjeto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBHorasTr__IdCol__6EC0713C1" Association="ProjectManagerModel.FK__TBHorasTr__IdCol__6EC0713C1">
+      <End Role="ColaboradorProjeto" EntitySet="ColaboradorProjeto" />
+      <End Role="HoraTrabalhada" EntitySet="HoraTrabalhada" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="FK__TBHorasTr__IdCol__6EC0713C1">
+    <End Type="ProjectManagerModel.ColaboradorProjeto" Role="ColaboradorProjeto" Multiplicity="1" />
+    <End Type="ProjectManagerModel.HoraTrabalhada" Role="HoraTrabalhada" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ColaboradorProjeto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HoraTrabalhada">
+        <PropertyRef Name="IdColab" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

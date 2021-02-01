@@ -1,0 +1,42 @@
+﻿@model Project.Manager.Models.Contato
+
+@{
+    ViewBag.Title = "MostrarDetalhes";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumeroTelefone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeroTelefone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id })*@ 
+    @Html.ActionLink("Voltar para a Lista", "ListarContatos")
+</p>

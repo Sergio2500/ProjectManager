@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Project.Manager.Models.ColaboradorProjeto>
+
+@{
+    ViewBag.Title = "ListarProjetoColaborador";
+}
+
+<h2>Listar Projeto por Colaborador</h2>
+
+
+<table class="table table-bordered table-striped table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorHora)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TBCadProjeto.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TBCadColaboradores.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TarefaColab)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.ColabHoraTrab)
+        </th>*@
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValorHora)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TBCadProjeto.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TBCadColaboradores.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TarefaColab)
+        </td>
+        
+        
+    </tr>
+}
+
+</table>
+
+<p>
+    @Html.ActionLink("Voltar para a Lista", "ListarProjetos")
+</p>

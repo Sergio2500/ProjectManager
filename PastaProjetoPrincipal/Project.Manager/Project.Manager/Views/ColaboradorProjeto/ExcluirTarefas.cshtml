@@ -1,0 +1,60 @@
+﻿@model Project.Manager.Models.ColaboradorProjeto
+
+@{
+    ViewBag.Title = "ExcluirTarefas";
+}
+
+<h2>Excluir Tarefas</h2>
+
+<h3>Tem certeza que deseja excluir esta tarefa?</h3>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdProjeto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdProjeto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdColab)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdColab)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorHora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValorHora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TarefaColab)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TarefaColab)
+        </dd>
+
+        
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-danger" /> |
+            @Html.ActionLink("Voltar para a lista", "ListarTarefas")
+        </div>
+    }
+</div>

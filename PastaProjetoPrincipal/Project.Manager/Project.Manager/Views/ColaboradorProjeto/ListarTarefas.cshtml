@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Project.Manager.Models.ColaboradorProjeto>
+@using Project.Manager.ViewModel
+@{
+    ViewBag.Title = "ListarTarefas";
+    //var listaSkill = (List<ColaboradorTypePeopleViewModel>)ViewBag.ListaTipoSkill;
+    var listaProjeto = (List<ProjetoViewModel>)ViewBag.ListarProjetos;
+}
+
+<h2>Tarefas</h2>
+
+
+<table class="table table-bordered table-hover" style="background-color:white;">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdProjeto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdColab)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorHora)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TarefaColab)
+        </th>
+
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.IdProjeto)
+                </td>*@
+            <td>
+                @*@listaSkill.FirstOrDefault(p => p.IdSkill == item.IdSkill).TipoSkill;*@
+                @listaProjeto.FirstOrDefault(i => i.Id == item.IdProjeto).Descricao
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TBCadColaboradores.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorHora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TarefaColab)
+            </td>
+
+            <td>
+                @Html.ActionLink(" ", "AlterarTarefas", new { id = item.Id }, new { @class = "btn btn-info glyphicon glyphicon-pencil", title = "Alterar" })
+                @Html.ActionLink(" ", "MostrarDetalhes", new { id = item.Id }, new { @class = "btn btn-success glyphicon glyphicon-zoom-in", title = "Mostrar Detalhes" })
+                @Html.ActionLink(" ", "ExcluirTarefas", new { id = item.Id }, new { @class = "btn btn-danger glyphicon glyphicon-remove-circle", title = "Excluir" })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,22 @@
+﻿body {
+    /*background: url('../Imagens/GestãoProjetos04.jpeg') no-repeat;*/
+    /*background: url('../Imagens/GestãoProjetos05.jpeg') no-repeat;*/
+    background: url('../Imagens/GestãoProjetos06.jpeg');
+    background-size: cover;
+    height: 100%;
+    background-color: aqua;
+    opacity: .8;
+    background-color: whitesmoke /*burlywood*/ /*azure*/
+}
+
+.menu {
+    background-color: black;
+        /*blanchedalmond;*/
+    /*color: rgb(0,0,0);*/
+    /*darkred*/ /*darkcyan*/
+    /*background: rgb(39,35,106);
+            background: linear-gradient(90deg, rgba(39,35,106,1) 0%, rgba(105,105,245,1) 47%, rgba(109,164,175,1) 100%);*/
+}
+/*div ul li{
+            background-color: darkcyan;
+        }*/

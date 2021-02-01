@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "IncluirRole";
+}
+
+<h2>Incluir Role</h2>
+
+@if (!string.IsNullOrEmpty(ViewBag.Resposta))
+{
+    <div class="alert alert-success">
+        @ViewBag.Resposta
+    </div>
+}
+
+
+
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <hr />
+        <div class="form-group">
+            @Html.Label("Role:", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBox("Role", "", new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Incluir Role" class="btn btn-primary" />
+            </div>
+        </div>
+
+    </div>
+}
+
